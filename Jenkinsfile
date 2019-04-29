@@ -5,6 +5,7 @@ pipeline {
     
     environment {
             def image = null;
+            registryCredential = "docker-id"
     }
         stages {
             stage('Building App') {
@@ -17,8 +18,8 @@ pipeline {
             stage('Send to Docker-Hub') {
                 steps {
                    sh './Slack_bot.sh Sending to Docker-Hub';
-                    script {docker.withRegistry('https://hub.docker.com', 'docker-id') {
-                       image.push(); }
+                    script {
+                       image.push(); 
                            }
                 }
             }
