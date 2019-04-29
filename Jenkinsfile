@@ -2,8 +2,10 @@
 
 pipeline {
     agent { node { label 'Host_Node' } }
-    def image = null;
-
+    
+    environment {
+            def image = null;
+    }
         stages {
             stage('Building App') {
                 steps {
