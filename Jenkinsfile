@@ -22,8 +22,11 @@ pipeline {
                        image.push(); 
                            }
                 }
+            }
                 stage('Running Test'){
+                    steps {
                      sh './Slack_bot.sh Uploaded succesfully to Docker-Hub. Starting deployment!';
+                    }
                 }
                 
             }
