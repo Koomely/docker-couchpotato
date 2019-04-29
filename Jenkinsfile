@@ -30,6 +30,11 @@ pipeline {
                      sh 'cd /home/ubuntu/src/yamls; ansible-playbook -i ansible_hosts run_pod.yml';
                     }
                 }
+            stage('Finished Deployment'){
+                steps{
+                 sh './Slack_bot.sh Finished Deployment!!!';   
+                }
+            }
                 
             }
         }
