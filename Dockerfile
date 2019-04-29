@@ -12,8 +12,7 @@ RUN apk add --update git python && \
   rm -rf /var/cache/apk/*
 
 ## Install Couchpotato
-RUN mkdir /opt && \
-  cd /opt && \
+RUN cd /opt && \
   git clone https://github.com/RuudBurger/CouchPotatoServer.git
 
 ## Expose port
