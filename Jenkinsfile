@@ -11,7 +11,7 @@ pipeline {
                 steps {
                     sh 'chmod +x Slack_bot.sh';
                     sh './Slack_bot.sh Building App';
-                    image = docker.build("koomely/couchpotato:${env.BUILD_NUMBER}")
+                    script {  image = docker.build("koomely/couchpotato:${env.BUILD_NUMBER}") }
                 }
             }
             stage('Send to Docker-Hub') {
