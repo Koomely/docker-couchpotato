@@ -27,6 +27,7 @@ pipeline {
                 stage('Running Test'){
                     steps {
                      sh './Slack_bot.sh Uploaded succesfully to Docker-Hub. Starting deployment!';
+                     sh 'cd /home/ubuntu/src/yamls; ansible-playbook -i ansible_hosts run_pod.yml';
                     }
                 }
                 
