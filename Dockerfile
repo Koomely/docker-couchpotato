@@ -2,7 +2,7 @@
 FROM alpine
 
 ## Maintainer info
-MAINTAINER razorgirl <https://github.com/razorgirl>
+MAINTAINER Koomely
 
 # set python to use utf-8 rather than ascii.
 ENV PYTHONIOENCODING="UTF-8"
