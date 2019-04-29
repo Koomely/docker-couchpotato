@@ -18,7 +18,7 @@ pipeline {
                 steps {
                    sh './Slack_bot.sh Sending to Docker-Hub';
                     
-                    script {docker.withRegistry('https://docker.io', 'docker-id') {
+                    script {docker.withRegistry('', 'docker-id') {
                        image.push(); 
                            }
                     }
