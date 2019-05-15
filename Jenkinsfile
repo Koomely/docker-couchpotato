@@ -28,7 +28,7 @@ pipeline {
             stage('Running Docker Image Tests') {
                 steps {
                         sh './Slack_bot.sh Testing Docker image';
-                        sh 'dgoss run -p 666:5050 couchpotato:latest'                    
+                        sh 'dgoss run -p 666:5050 koomely/couchpotato:latest'                    
                 }
             }
                 stage('Pushing to Deployment!'){
