@@ -14,6 +14,14 @@ pipeline {
                     script {  image = docker.build("koomely/couchpotato:latest") }
                 }
             }
+            
+            stage('Running Docker Image Tests') {
+                steps {
+                        sh './Slack_bot.sh Testing Docker image';
+                        sh 'dgoss run -p 666:5050 koomely/couchpotato:latest'                    
+                }
+            }
+            
             stage('Send to Docker-Hub') {
                 steps {
                    sh './Slack_bot.sh Sending to Docker-Hub';
@@ -22,13 +30,6 @@ pipeline {
                        image.push(); 
                            }
                     }
-                }
-            }
-            
-            stage('Running Docker Image Tests') {
-                steps {
-                        sh './Slack_bot.sh Testing Docker image';
-                        sh 'dgoss run -p 666:5050 koomely/couchpotato:latest'                    
                 }
             }
                 stage('Pushing to Deployment!'){
